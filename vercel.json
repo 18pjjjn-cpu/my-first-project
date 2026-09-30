@@ -1,7 +1,9 @@
 {
-  "installCommand": "npm install && cd client && npm install",
-  "buildCommand": "cd client && npm run build",
+  "buildCommand": "cd client && npm install && npm run build",
   "outputDirectory": "client/build",
+  "public": "client/build",
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     {
       "source": "/(.*)",
