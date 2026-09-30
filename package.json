@@ -1,0 +1,19 @@
+{
+  "name": "med-study-app",
+  "version": "1.0.0",
+  "description": "Study companion app for medical apprentices",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && node index.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "start": "npm run build && npm run server"
+  },
+  "keywords": ["medical", "study", "flashcards", "anatomy"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
