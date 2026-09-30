@@ -36,7 +36,7 @@ const Login = ({ onLogin, onUserSet }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center text-blue-600 mb-8">📚 Med Study</h1>
+        <h1 className="text-3xl font-bold text-center text-blue-600 mb-8">🧬 Biomedical Apprentice</h1>
 
         <div className="flex gap-4 mb-6">
           <button

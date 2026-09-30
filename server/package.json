@@ -1,7 +1,7 @@
 {
-  "name": "med-study-server",
+  "name": "biomedical-apprentice-server",
   "version": "1.0.0",
-  "description": "Backend API for medical study app",
+  "description": "Backend API for Biomedical Apprentice platform",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

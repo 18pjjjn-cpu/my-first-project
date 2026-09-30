@@ -1,7 +1,7 @@
 {
-  "name": "med-study-client",
+  "name": "biomedical-apprentice-client",
   "version": "1.0.0",
-  "description": "React frontend for medical study app",
+  "description": "React frontend for Biomedical Apprentice platform",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",

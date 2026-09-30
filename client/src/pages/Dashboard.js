@@ -45,8 +45,8 @@ const Dashboard = ({ user }) => {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">Welcome, {user?.fullName}!</h1>
-        <p className="text-gray-600">Here's your study progress overview</p>
+        <h1 className="text-4xl font-bold text-gray-900 mb-2">Welcome to Biomedical Apprentice, {user?.fullName}!</h1>
+        <p className="text-gray-600">Your study and apprenticeship tracking hub</p>
       </div>
 
       {/* Stats Grid */}
@@ -131,8 +131,8 @@ const Dashboard = ({ user }) => {
           className="card hover:shadow-lg transition text-center py-8"
         >
           <div className="text-5xl mb-3">📚</div>
-          <h3 className="text-lg font-semibold text-gray-900">Upload Notes</h3>
-          <p className="text-sm text-gray-600 mt-2">Add PowerPoint slides for auto-generated flashcards</p>
+          <h3 className="text-lg font-semibold text-gray-900">Upload Lecture Notes</h3>
+          <p className="text-sm text-gray-600 mt-2">Upload PowerPoint slides and generate flashcards automatically</p>
         </Link>
 
         <Link

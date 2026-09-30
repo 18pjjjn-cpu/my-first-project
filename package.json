@@ -1,7 +1,7 @@
 {
-  "name": "med-study-app",
+  "name": "biomedical-apprentice",
   "version": "1.0.0",
-  "description": "Study companion app for medical apprentices",
+  "description": "Comprehensive learning and apprenticeship tracking platform for biomedical science students",
   "main": "server/index.js",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
