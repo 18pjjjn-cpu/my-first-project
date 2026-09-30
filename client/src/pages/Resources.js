@@ -7,13 +7,14 @@ const Resources = () => {
 
   const fetchResources = async (tab) => {
     try {
+      const API_URL = process.env.REACT_APP_API_URL || '/api';
       let response;
       if (tab === 'anatomy') {
-        response = await axios.get('http://localhost:5000/api/resources/anatomy');
+        response = await axios.get(`${API_URL}/resources/anatomy`);
       } else if (tab === 'grad-medicine') {
-        response = await axios.get('http://localhost:5000/api/resources/grad-medicine');
+        response = await axios.get(`${API_URL}/resources/grad-medicine`);
       } else if (tab === 'ibms') {
-        response = await axios.get('http://localhost:5000/api/resources/ibms');
+        response = await axios.get(`${API_URL}/resources/ibms`);
       }
       setResources(response.data.resources || []);
     } catch (error) {

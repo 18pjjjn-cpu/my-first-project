@@ -18,7 +18,8 @@ const OTJLog = () => {
 
   const fetchOTJLogs = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/otj');
+      const API_URL = process.env.REACT_APP_API_URL || '/api';
+      const response = await axios.get(`${API_URL}/otj`);
       setLogs(response.data.logs || []);
     } catch (error) {
       console.error('Error fetching OTJ logs:', error);
@@ -28,7 +29,8 @@ const OTJLog = () => {
   const handleAddLog = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/otj/log', formData);
+      const API_URL = process.env.REACT_APP_API_URL || '/api';
+      const response = await axios.post(`${API_URL}/otj/log`, formData);
       if (response.data.success) {
         setLogs([...logs, response.data.entry]);
         setFormData({

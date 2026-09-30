@@ -19,8 +19,9 @@ const Login = ({ onLogin, onUserSet }) => {
     setError('');
 
     try {
-      const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
-      const response = await axios.post(`http://localhost:5000${endpoint}`, formData);
+      const API_URL = process.env.REACT_APP_API_URL || '/api';
+      const endpoint = isLogin ? '/auth/login' : '/auth/register';
+      const response = await axios.post(`${API_URL}${endpoint}`, formData);
 
       if (response.data.success) {
         localStorage.setItem('token', response.data.token);

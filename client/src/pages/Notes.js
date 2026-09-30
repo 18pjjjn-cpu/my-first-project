@@ -13,7 +13,8 @@ const Notes = () => {
 
   const fetchNotes = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/notes');
+      const API_URL = process.env.REACT_APP_API_URL || '/api';
+      const response = await axios.get(`${API_URL}/notes`);
       setNotes(response.data.notes || []);
     } catch (error) {
       console.error('Error fetching notes:', error);
@@ -38,7 +39,8 @@ const Notes = () => {
     formData.append('userId', localStorage.getItem('userId'));
 
     try {
-      const response = await axios.post('http://localhost:5000/api/notes/upload', formData, {
+      const API_URL = process.env.REACT_APP_API_URL || '/api';
+      const response = await axios.post(`${API_URL}/notes/upload`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 

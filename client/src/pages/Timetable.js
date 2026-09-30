@@ -19,7 +19,8 @@ const Timetable = () => {
 
   const fetchTimetable = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/timetable/week/2026-10-01');
+      const API_URL = process.env.REACT_APP_API_URL || '/api';
+      const response = await axios.get(`${API_URL}/timetable/week/2026-10-01`);
       setEvents(response.data.events || []);
     } catch (error) {
       console.error('Error fetching timetable:', error);
@@ -29,7 +30,8 @@ const Timetable = () => {
   const handleAddEvent = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/timetable/event', formData);
+      const API_URL = process.env.REACT_APP_API_URL || '/api';
+      const response = await axios.post(`${API_URL}/timetable/event`, formData);
       if (response.data.success) {
         setEvents([...events, response.data.event]);
         setFormData({ title: '', type: 'lecture', date: '', startTime: '', endTime: '', location: '' });

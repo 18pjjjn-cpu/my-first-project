@@ -7,8 +7,10 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd server && node index.js",
     "client": "cd client && npm start",
-    "build": "cd client && npm run build",
-    "start": "npm run build && npm run server"
+    "build:client": "cd client && npm run build",
+    "build": "npm run build:client",
+    "start": "npm run build && npm run server",
+    "start:prod": "cd server && PORT=5000 node index.js"
   },
   "keywords": ["medical", "study", "flashcards", "anatomy"],
   "author": "",

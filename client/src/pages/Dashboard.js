@@ -15,12 +15,13 @@ const Dashboard = ({ user }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const API_URL = process.env.REACT_APP_API_URL || '/api';
         const [notesRes, flashcardsRes, quizRes, otjRes, timetableRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/notes'),
-          axios.get('http://localhost:5000/api/flashcards/1'),
-          axios.get('http://localhost:5000/api/quiz/history'),
-          axios.get('http://localhost:5000/api/otj/summary'),
-          axios.get('http://localhost:5000/api/timetable/week/2026-10-01')
+          axios.get(`${API_URL}/notes`),
+          axios.get(`${API_URL}/flashcards/1`),
+          axios.get(`${API_URL}/quiz/history`),
+          axios.get(`${API_URL}/otj/summary`),
+          axios.get(`${API_URL}/timetable/week/2026-10-01`)
         ]);
 
         setStats({

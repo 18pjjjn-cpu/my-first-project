@@ -13,6 +13,12 @@ app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
+// Serve static React frontend
+const buildPath = path.join(__dirname, '../client/build');
+if (fs.existsSync(buildPath)) {
+  app.use(express.static(buildPath));
+}
+
 // File upload setup
 const upload = multer({
   dest: path.join(__dirname, 'uploads'),
@@ -46,6 +52,16 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'Server running' });
 });
 
+// SPA fallback - serve index.html for all non-API routes
+app.get('*', (req, res) => {
+  const indexPath = path.join(__dirname, '../client/build/index.html');
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    res.status(404).json({ error: 'React app not built. Run: npm run build:client' });
+  }
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -53,5 +69,7 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Biomedical Apprentice running on http://localhost:${PORT}`);
+  console.log(`📚 Frontend: http://localhost:${PORT}`);
+  console.log(`🔌 API: http://localhost:${PORT}/api`);
 });
