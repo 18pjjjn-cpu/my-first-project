@@ -1,0 +1,21 @@
+{
+  "name": "biomedical-apprentice",
+  "version": "1.0.0",
+  "description": "Comprehensive learning and apprenticeship tracking platform for biomedical science students",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && node index.js",
+    "client": "cd client && npm start",
+    "build:client": "cd client && npm run build",
+    "build": "npm run build:client",
+    "start": "npm run build && npm run server",
+    "start:prod": "cd server && PORT=5000 node index.js"
+  },
+  "keywords": ["medical", "study", "flashcards", "anatomy"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

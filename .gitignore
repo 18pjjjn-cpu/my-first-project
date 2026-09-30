@@ -216,3 +216,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Node.js / npm
+node_modules/
+package-lock.json
+yarn.lock
+.npm
+.eslintcache
+
+# Build artifacts
+/build
+/dist
+/server/uploads
