@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const Timetable = () => {
   const [events, setEvents] = useState([]);
-  const [view, setView] = useState('week');
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     title: '',

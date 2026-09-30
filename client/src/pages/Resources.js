@@ -5,18 +5,14 @@ const Resources = () => {
   const [activeTab, setActiveTab] = useState('anatomy');
   const [resources, setResources] = useState([]);
 
-  useEffect(() => {
-    fetchResources();
-  }, [activeTab]);
-
-  const fetchResources = async () => {
+  const fetchResources = async (tab) => {
     try {
       let response;
-      if (activeTab === 'anatomy') {
+      if (tab === 'anatomy') {
         response = await axios.get('http://localhost:5000/api/resources/anatomy');
-      } else if (activeTab === 'grad-medicine') {
+      } else if (tab === 'grad-medicine') {
         response = await axios.get('http://localhost:5000/api/resources/grad-medicine');
-      } else if (activeTab === 'ibms') {
+      } else if (tab === 'ibms') {
         response = await axios.get('http://localhost:5000/api/resources/ibms');
       }
       setResources(response.data.resources || []);
@@ -24,6 +20,10 @@ const Resources = () => {
       console.error('Error fetching resources:', error);
     }
   };
+
+  useEffect(() => {
+    fetchResources(activeTab);
+  }, [activeTab]);
 
   return (
     <div className="space-y-8">
